@@ -12,7 +12,7 @@
             $menu = ulauncher-toggle
 
             exec-once = udiskie & fcitx & hypridle
-            exec-once = swaybg -i ~/.config/home-manager/default/hypr/cat.png & waybar & dunst
+            exec-once = swaybg -i ~/.config/home-manager/default/hypr/cat.png & waybar & swaync
             exec-once = nm-applet --indicator & ulauncher & fcitx5
             exec-once=/usr/lib/polkit-kde-authentication-agent-1
 

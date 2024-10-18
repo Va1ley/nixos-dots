@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./default/imports.nix
+        ./holo/imports.nix
     ];
 
     home = {

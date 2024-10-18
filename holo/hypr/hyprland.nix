@@ -1,3 +1,4 @@
+
 {
     wayland.windowManager.hyprland = {
         enable = true;
@@ -11,7 +12,7 @@
             $menu = ulauncher-toggle
 
             exec-once = udiskie & fcitx & hypridle
-            exec-once = swaybg -i ~/.config/home-manager/roxy/hypr/wallpaper.jpg -m fill & waybar & swaync
+            exec-once = swaybg -i ~/.config/home-manager/holo/hypr/holo.jpg & waybar & swaync
             exec-once = nm-applet --indicator & ulauncher & fcitx5
             exec-once=/usr/lib/polkit-kde-authentication-agent-1
 
@@ -23,8 +24,8 @@
                 gaps_in = 5
                 gaps_out = 10
                 border_size = 2
-                col.active_border = rgb(1d2240)
-                col.inactive_border = rgba(141414bf)
+                col.active_border = rgb(b88e5f) rgb(b88e5f) 45deg
+                col.inactive_border = rgba(595959aa)
                 resize_on_border = true
                 allow_tearing = false
                 layout = dwindle
@@ -129,11 +130,12 @@
 
             bindm = $mainMod, mouse:272, movewindow
             bindm = $mainMod SHIFT, mouse:272, resizewindow
-            windowrulev2 = opacity 0.9 0.9,class:^(dev.zed.Zed)$
+            windowrulev2 = opacity 0.8 0.8,class:^(dev.zed.Zed)$
 
             windowrulev2 = suppressevent maximize, class:.*
             windowrulev2 = opacity 0.98 0.98, class:^(floorp)$
             windowrulev2 = opacity 0.85 0.85, class:^(YouTube Music)$
+            windowrulev2 = opacity 0.95 0.95, class:^(vesktop)$
             windowrulev2 = noborder, class:^(wofi)$
 
             bindle=, XF86AudioRaiseVolume, exec, pamixer -i 5
