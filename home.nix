@@ -70,10 +70,8 @@
             ls = "ls --color=auto";
             grep = "grep --color=auto";
             nixedit = "zeditor ~/nix-configs/configuration.nix";
-            nixbuild = "sudo nixos-rebuild switch --flake /home/emers/nix-configs";
+            nixbuild = "sudo nixos-rebuild switch --flake /home/emers/nix-configs && cp /home/emers/nix-configs/* /home/emers/.config/home-manager/.nixos-backup/ -R";
             nixgarbage = "sudo nix-collect-garbage -d";
-            nixcopy = "sudo cp /home/emers/nix-configs/* /etc/nixos/";
-            nixboth = "nixcopy && nixbuild";
             nixupdate = "sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/";
         };
         bashrcExtra = ''
