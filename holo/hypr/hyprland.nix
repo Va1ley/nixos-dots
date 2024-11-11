@@ -11,8 +11,9 @@
             $fileManager = thunar
             $menu = ulauncher-toggle
 
-            exec-once = udiskie & fcitx & hypridle
-            exec-once = swaybg -i ~/.config/home-manager/holo/hypr/holo.jpg & waybar & swaync
+            exec-once = udiskie & hypridle
+            exec-once = swaybg -i ~/.config/home-manager/holo/hypr/holo.jpg
+            exec-once = waybar & swaync
             exec-once = nm-applet --indicator & ulauncher & fcitx5
             exec-once=/usr/lib/polkit-kde-authentication-agent-1
 

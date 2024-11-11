@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./holo/imports.nix
+        ./default/imports.nix
     ];
 
     home = {
@@ -69,12 +69,12 @@
         shellAliases = {
             ls = "ls --color=auto";
             grep = "grep --color=auto";
-            nixedit = "zed ~/nix-configs/configuration.nix";
-            nixbuild = "sudo nixos-rebuild switch";
+            nixedit = "zeditor ~/nix-configs/configuration.nix";
+            nixbuild = "sudo nixos-rebuild switch --flake /home/emers/nix-configs";
             nixgarbage = "sudo nix-collect-garbage -d";
             nixcopy = "sudo cp /home/emers/nix-configs/* /etc/nixos/";
             nixboth = "nixcopy && nixbuild";
-            nixupdate = "sudo nix-channel --update";
+            nixupdate = "sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/";
         };
         bashrcExtra = ''
             if [ "$(tput cols)" -gt 71 ]; then
