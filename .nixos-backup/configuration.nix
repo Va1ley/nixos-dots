@@ -24,6 +24,7 @@
         hidePodcasts
         adblock
         fullScreen
+        beautifulLyrics
        ];
        theme = spicePkgs.themes.catppuccin;
        colorScheme = "mocha";
