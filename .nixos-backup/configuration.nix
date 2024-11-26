@@ -4,31 +4,9 @@
   imports = [
       ./hardware-configuration.nix
       ./hardware.nix
+      ./flake-configuration.nix
       inputs.spicetify-nix.nixosModules.default
   ];
-
-  programs.spicetify =
-     let
-       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-     in
-     {
-       enable = true;
-       enabledExtensions = with spicePkgs.extensions; [
-        fullAppDisplayMod
-        autoSkipVideo
-        shuffle
-        fullAlbumDate
-        wikify
-        songStats
-        history
-        hidePodcasts
-        adblock
-        fullScreen
-        beautifulLyrics
-       ];
-       theme = spicePkgs.themes.catppuccin;
-       colorScheme = "mocha";
-     };
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
@@ -157,6 +135,8 @@
 	nodejs
 	wireguard-tools
 	rustup
+	gcc
+	nil
 	# Apps
 	firefox
 	floorp
@@ -166,9 +146,9 @@
 	vesktop
 	spicetify-cli
 	spotify
-	spotify-tray
 	gnome-calculator
 	obsidian
+	jetbrains.rust-rover
   ];
 
   i18n.inputMethod = {
