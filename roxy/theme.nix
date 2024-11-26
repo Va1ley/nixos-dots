@@ -33,7 +33,7 @@
             theme = {
                 mode = "dark";
                 light = "One Light";
-                dark = "Catppuccin Mocha";
+                dark = "Rosé Pine";
             };
         };
     };

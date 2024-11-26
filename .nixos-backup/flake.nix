@@ -1,5 +1,5 @@
 {
-  description = "My NixOS Configuration with Spicetify";
+  description = "The Best? NixOS configuration.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Adjust channel if needed
@@ -8,10 +8,9 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-software-center.url = "github:snowfallorg/nix-software-center";
   };
 
-  outputs = { self, nixpkgs, catppuccin, spicetify-nix, nix-software-center }@inputs: {
+  outputs = { self, nixpkgs, catppuccin, spicetify-nix }@inputs: {
     nixosConfigurations = {
       framework = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
