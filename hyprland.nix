@@ -79,6 +79,7 @@
             bind = $mainMod SHIFT, B, exec, hyprshot -m region -o ~/Pictures
             bind = $mainMod, L, exec, hyprlock
             bind = $mainMod, O, fullscreen, 0
+            bind = SUPER, P, exec, pkill -SIGUSR1 waybar
             bind = $mainMod, left, movefocus, l
             bind = $mainMod, right, movefocus, r
             bind = $mainMod, up, movefocus, u

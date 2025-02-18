@@ -25,6 +25,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    withUWSM = true;
   };
   # Screensharing
   services.dbus.enable = true;
@@ -53,40 +54,40 @@
     accent = "lavender";
     flavor = "mocha";
   };
-  services.displayManager.sddm.catppuccin.fontSize = "14";
+  catppuccin.sddm.fontSize = "14";
 
   # Webdev Stuff
-  services.nginx = {
-    enable = true;
-    virtualHosts = {
-        "bento-app.uk" = {
-            forceSSL = true;
-            sslCertificate = "/var/www/certs/selfsigned.crt";
-            sslCertificateKey = "/var/www/certs/selfsigned.key";
-            root = "/var/www/bento-app.uk";
-            locations."~ \\.php$".extraConfig = ''
-              fastcgi_pass  unix:${config.services.phpfpm.pools.mypool.socket};
-              fastcgi_index index.php;
-            '';
-        };
-    };
-  };
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
-  services.phpfpm.pools.mypool = {
-    user = "nobody";
-    settings = {
-      "pm" = "dynamic";
-      "listen.owner" = config.services.nginx.user;
-      "pm.max_children" = 5;
-      "pm.start_servers" = 2;
-      "pm.min_spare_servers" = 1;
-      "pm.max_spare_servers" = 3;
-      "pm.max_requests" = 500;
-    };
-  };
+  # services.nginx = {
+  #   enable = true;
+  #   virtualHosts = {
+  #       "bento-app.uk" = {
+  #           forceSSL = true;
+  #           sslCertificate = "/var/www/certs/selfsigned.crt";
+  #           sslCertificateKey = "/var/www/certs/selfsigned.key";
+  #           root = "/var/www/bento-app.uk";
+  #           locations."~ \\.php$".extraConfig = ''
+  #             fastcgi_pass  unix:${config.services.phpfpm.pools.mypool.socket};
+  #             fastcgi_index index.php;
+  #           '';
+  #       };
+  #   };
+  # };
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  # };
+  # services.phpfpm.pools.mypool = {
+  #   user = "nobody";
+  #   settings = {
+  #     "pm" = "dynamic";
+  #     "listen.owner" = config.services.nginx.user;
+  #     "pm.max_children" = 5;
+  #     "pm.start_servers" = 2;
+  #     "pm.min_spare_servers" = 1;
+  #     "pm.max_spare_servers" = 3;
+  #     "pm.max_requests" = 500;
+  #   };
+  # };
 
   users.users.emers = {
      isNormalUser = true;
@@ -148,7 +149,6 @@
 	spotify
 	gnome-calculator
 	obsidian
-	jetbrains.rust-rover
   ];
 
   i18n.inputMethod = {
@@ -160,7 +160,7 @@
     ];
   };
   fonts.packages = with pkgs; [
-	nerdfonts
+	nerd-fonts.jetbrains-mono
 	jetbrains-mono
 	emojione
 	noto-fonts-cjk-sans

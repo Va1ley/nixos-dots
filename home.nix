@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./roxy/imports.nix
+        ./default/imports.nix
         ./hyprland.nix
         ./waybar.nix
     ];

@@ -37,7 +37,7 @@
                 "network" = {
                     interface = "wlp170s0";
                     format = "{ifname}";
-                    format-wifi = "  {essid}";
+                    format-wifi = "   {essid}";
                     format-ethernet = "󰈀  {essid}";
                     format-disconnected = "切断";
                     tooltip-format-wifi = "{essid} {signalStrength}% ";
@@ -69,10 +69,10 @@
                         warning = 30;
                         critical = 10;
                     };
-                    format = "{icon}  {capacity}%";
-                    format-charging = "  {capacity}%";
-                    format-plugged = "  {capacity}%";
-                    format-alt = "{time}  {icon}";
+                    format = "{icon}   {capacity}%";
+                    format-charging = "   {capacity}%";
+                    format-plugged = "   {capacity}%";
+                    format-alt = "{time}   {icon}";
                     format-icons = [ "" "" "" "" "" ];
                 };
                 "group/backlight" = {
@@ -105,7 +105,7 @@
                 "pulseaudio" = {
                     tooltip = true;
                     scroll-step = 1;
-                    format = "{icon}  {volume}%";
+                    format = "{icon}   {volume}%";
                     on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
                     format-icons = {
                         default = [ "󰝟" "" "" ];

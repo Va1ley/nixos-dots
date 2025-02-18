@@ -3,7 +3,7 @@
     wayland.windowManager.hyprland = {
         enable = true;
         extraConfig = ''
-            exec-once = swaybg -i ~/.config/home-manager/holo/hypr/holo.jpg
+            exec-once = swaybg -i ~/.config/home-manager/holo/hypr/holo.jpg & waybar
 
             general {
                 gaps_in = 5
