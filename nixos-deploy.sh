@@ -38,9 +38,9 @@ if [ -z "$HOME_NIX" ]; then
 fi
 
 # Extract the command definitions using grep and sed
-NIXUPDATE_CMD=$(grep -A 5 "nixupdate" "$HOME_NIX" | sed -n '/shellAlias/,/;/p' | grep -oP '"\K[^"]*' | tail -n 1)
-NIXBUILD_CMD=$(grep -A 5 "nixbuild" "$HOME_NIX" | sed -n '/shellAlias/,/;/p' | grep -oP '"\K[^"]*' | tail -n 1)
-HOMEBUILD_CMD=$(grep -A 5 "homebuild" "$HOME_NIX" | sed -n '/shellAlias/,/;/p' | grep -oP '"\K[^"]*' | tail -n 1)
+NIXUPDATE_CMD="sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/ && nixbackup"
+NIXBUILD_CMD="sudo nixos-rebuild switch --flake /home/emers/nix-configs && nixbackup"
+HOMEBUILD_CMD="home-manager switch --flake ~/.config/home-manager#emers@host --impure"
 
 # Display the extracted commands
 echo "Found command definitions:"
