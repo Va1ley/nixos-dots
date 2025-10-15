@@ -1,5 +1,3 @@
-#!/bin/bash
-
 set -e  # Exit on error
 
 echo "Starting NixOS configuration deployment..."
