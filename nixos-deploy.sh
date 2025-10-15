@@ -36,8 +36,8 @@ if [ -z "$HOME_NIX" ]; then
 fi
 
 # Extract the command definitions using grep and sed
-NIXUPDATE_CMD="sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/ && nixbackup"
-NIXBUILD_CMD="sudo nixos-rebuild switch --flake /home/emers/nix-configs && nixbackup"
+NIXUPDATE_CMD="sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/"
+NIXBUILD_CMD="sudo nixos-rebuild switch --flake /home/emers/nix-configs"
 HOMEBUILD_CMD="home-manager switch --flake ~/.config/home-manager#emers@host --impure"
 
 # Display the extracted commands
