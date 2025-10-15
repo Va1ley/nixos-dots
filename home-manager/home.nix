@@ -78,7 +78,7 @@
       nixupdate = "sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/ && nixbackup";
 
       homebuild = "home-manager switch --flake ~/.config/home-manager#emers@host --impure";
-      nixbackup = "cp ~/nix-configs/* ~/Documents/GitHub/nixos-dots/nixos/ -R && cp ~/.config/home-manager/* ~/Documents/GitHub/nixos-dots/home-manager -R";
+      nixbackup = "cp ~/nix-configs/* ~/Documents/GitHub/nixos-dots/nixos/ -R && cp ~/.config/home-manager/* ~/Documents/GitHub/nixos-dots/home-manager -R && cp ~/.config/DankMaterialShell/* ~/Documents/GitHub/nixos-dots/DankMaterialShell -R";
     };
     bashrcExtra = ''
       if [ "$(tput cols)" -gt 71 ]; then
