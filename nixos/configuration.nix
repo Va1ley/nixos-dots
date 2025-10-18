@@ -3,10 +3,12 @@
 {
     imports = [
         ./applications.nix
-        ./desktop.nix
         ./hardware.nix
-        ./hardware-configuration.nix
         ./spicetify.nix
+		./desktop/device.nix
+		./desktop/hardware-configuration.nix
+		# ./laptop/device.nix
+		# ./laptop/hardware-configuration.nix
         inputs.spicetify-nix.nixosModules.default
     ];
 
