@@ -73,7 +73,7 @@
       grep = "grep --color=auto";
 
       nixedit = "zeditor ~/nix-configs/configuration.nix";
-      nixbuild = "sudo nixos-rebuild switch --flake /home/emers/nix-configs && nixbackup";
+      nixbuild = "sudo nixos-rebuild switch --flake /home/emers/nix-configs#device && nixbackup";
       nixgarbage = "sudo nix-collect-garbage -d";
       nixupdate = "sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/ && nixbackup";
 
