@@ -1,12 +1,7 @@
 {
   wayland.windowManager.hyprland = {
     extraConfig = ''
-      env = LIBVA_DRIVER_NAME,nvidia
-      env = ___GLX_VENDOR_LIBRARY_NAME,nvidia
-
-      monitor = DP-6, 1920x1080@144, 0x0, 1
-      monitor = DP-4, 1920x1080@60, auto-left, 1
-      monitor = HDMI-A-2, 1920x1080@60, auto-down, 1
+      monitor = eDP-1, 2256x1504, 0x0, 1.175
 
       workspace = name:2, monitor:DP-4
       exec-once = hyprctl dispatch workspace 2
@@ -69,7 +64,7 @@
           touchpad {
               natural_scroll = false
           }
-          sensitivity = -0.8
+          sensitivity = 0
       }
 
       $mainMod = SUPER
