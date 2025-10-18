@@ -191,23 +191,22 @@
   "updaterTerminalAdditionalParams": "",
   "screenPreferences": {
     "dankBar": [
-      "DP-4",
-      "DP-6"
+      "all"
     ],
     "dock": [
       "all"
     ],
     "notifications": [
-      "DP-6"
+      "all"
     ],
     "wallpaper": [
       "all"
     ],
     "osd": [
-      "DP-6"
+      "all"
     ],
     "toast": [
-      "DP-4"
+      "all"
     ],
     "systemTray": [
       "all"
