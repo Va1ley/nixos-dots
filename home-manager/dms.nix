@@ -8,10 +8,10 @@
     enableDynamicTheming = true;
     enableAudioWavelength = true;
 
-    # greeter = {
-    #   enable = true;
-    #   compositor.name = "hyprland";
-    #   configHome = "home/emers";
-    # };
+    greeter = {
+      enable = true;
+      compositor.name = "hyprland";
+      configHome = "home/emers";
+    };
   };
 }
