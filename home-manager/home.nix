@@ -3,7 +3,8 @@
 {
   imports = [
     ./default/imports.nix
-    ./hyprland.nix
+    ./desktop/hyprland.nix
+    # ./laptop/hyprland.nix
     ./dms.nix
   ];
 
