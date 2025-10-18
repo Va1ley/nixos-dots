@@ -15,7 +15,7 @@
     { self, nixpkgs, spicetify-nix, dankMaterialShell }@inputs:
     {
       nixosConfigurations = {
-        framework = nixpkgs.lib.nixosSystem {
+        device = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
