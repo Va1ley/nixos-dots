@@ -83,7 +83,7 @@
       bind = $mainMod, P, pseudo,
       bind = $mainMod, J, togglesplit,
       bind = $mainMod, F, exec, floorp
-      bind = $mainMod SHIFT, S, exec, hyprshot -m region -o ~/Pictures
+      bind = $mainMod SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots
       # bind = $mainMod, L, exec, hyprlock
       bind = $mainMod, O, fullscreen, 0
       bind = SUPER, P, exec, pkill -SIGUSR1 waybar
@@ -138,10 +138,6 @@
       # DMS
       # Required for clipboard history integration
       exec-once = bash -c "wl-paste --watch cliphist store &"
-
-      # Recommended (must install polkit-mate beforehand) for elevation prompts
-      # exec-once = /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
-      # This may be a different path on different distributions, the above is for the arch linux mate-polkit package
 
       # Starts DankShell
       exec-once = dms run
