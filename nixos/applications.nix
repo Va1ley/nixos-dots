@@ -35,6 +35,7 @@
     file-roller
     egl-wayland
     loupe
+    linuxKernel.packages.linux_zen.xone
     # Nemo
     nemo-with-extensions
     nemo-emblems
@@ -56,6 +57,7 @@
     wireguard-tools
     nil
     pywalfox-native
+    qt6ct
     # Apps
     floorp-bin
     zed-editor
@@ -66,10 +68,11 @@
     spotify
     gnome-calculator
     obsidian
+    prismlauncher
   ];
 
-  # # Allow dynamically linxed execulatables
-  # programs.nix-ld.enable = true;
+  # Allow dynamically linxed execulatables
+  programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
   #     # Add missing dynamic libraries for unpackaged programs here
   # ];

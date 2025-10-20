@@ -30,4 +30,7 @@
        alsa.support32Bit = true;
        pulse.enable = true;
     };
+
+    # Xbox adapter
+    hardware.xone.enable = true;
 }

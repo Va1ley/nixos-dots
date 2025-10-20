@@ -8,13 +8,17 @@
       monitor = DP-4, 1920x1080@60, auto-left, 1
       monitor = HDMI-A-2, 1920x1080@60, auto-down, 1
 
+
+
       workspace = name:2, monitor:DP-4
       exec-once = hyprctl dispatch workspace 2
       workspace = name:3, monitor:HDMI-A-2
       exec-once = hyprctl dispatch workspace 3
-      exec-once = [worspace 3 silent] vesktop
+      exec-once = vesktop
       workspace = name:1, monitor:DP-6
       exec-once = hyprctl dispatch workspace 1
+
+
 
       $terminal = kitty
       $fileManager = nemo

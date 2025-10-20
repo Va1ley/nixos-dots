@@ -3,12 +3,10 @@
 {
     imports = [
         ./applications.nix
+        ./desktop.nix
         ./hardware.nix
+        ./hardware-configuration.nix
         ./spicetify.nix
-		./desktop/device.nix
-		./desktop/hardware-configuration.nix
-		# ./laptop/device.nix
-		# ./laptop/hardware-configuration.nix
         inputs.spicetify-nix.nixosModules.default
     ];
 
@@ -35,9 +33,25 @@
 	    takao
 		kochi-substitute
 		roboto
+		material-symbols
     ];
 
-    boot.loader.systemd-boot.enable = true;
+
+    boot.loader.grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+
+        theme = pkgs.stdenv.mkDerivation {
+            name = "ina-grub";
+            src = ./grub-theme/ina-grub;
+            installPhase = ''
+                mkdir -p $out
+                cp -r * $out/
+            '';
+        };
+    };
+
     boot.loader.efi.canTouchEfiVariables = true;
     system.stateVersion = "25.05"; # DO NOT CHANGE THIS EVER FR
 }
