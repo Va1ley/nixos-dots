@@ -11,4 +11,14 @@
         open = true;
         nvidiaSettings = true;
     };
+
+    services.xserver.digimend.enable = true;
+    hardware.opentabletdriver.enable = true;
+    environment.systemPackages = with pkgs; [
+        krita
+        kdePackages.wacomtablet
+        opentabletdriver
+        pureref
+        config.boot.kernelPackages.digimend
+    ];
 }

@@ -75,10 +75,11 @@
             nixedit = "zeditor ~/nix-configs/configuration.nix";
             nixbuild = "sudo nixos-rebuild switch --flake /home/emers/nix-configs && nixbackup";
             nixgarbage = "sudo nix-collect-garbage -d";
-            nixupdate = "sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/ && nixbackup";
+            nixupdate = "sudo nix-channel --update && nix flake update --flake /home/emers/nix-configs/ && nix flake update --flake /home/emers/.config/home-manager/ && nix flake archive ~/.config/home-manager/ && nixbackup";
 
             homebuild = "home-manager switch --flake ~/.config/home-manager#emers@host --impure";
             nixbackup = "cp ~/nix-configs/* ~/Documents/GitHub/nixos-dots/nixos/ -R && cp ~/.config/home-manager/* ~/Documents/GitHub/nixos-dots/home-manager -R";
+            replay = "gpu-screen-recorder -w DP-6 -c mp4 -s 0x0 -f 60 -a default_output -a default_input -q very_high -r 300 -o ~/Videos/Replays/";
             # && cp ~/.config/DankMaterialShell/* ~/Documents/GitHub/nixos-dots/DankMaterialShell -R
         };
         bashrcExtra = ''
@@ -88,7 +89,12 @@
         '';
     };
 
-  programs.zed-editor = {
+    services.udiskie = {
+        enable = true;
+        settings.program_options.file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
+    };
+
+    programs.zed-editor = {
     enable = true;
     userSettings = {
         # languages = {
@@ -107,7 +113,7 @@
         buffer_font_size = 18;
         format_on_save = "off";
     };
-  };
+    };
 
   # Dont Change
   home.stateVersion = "24.05";

@@ -7,6 +7,7 @@
         ./hardware.nix
         ./hardware-configuration.nix
         ./spicetify.nix
+        ./japanese.nix
         inputs.spicetify-nix.nixosModules.default
     ];
 
@@ -25,16 +26,19 @@
     nixpkgs.config.allowUnfree = true;
     nix.settings.auto-optimise-store = true;
 
-    fonts.packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
-        jetbrains-mono
-        emojione
-        noto-fonts-cjk-sans
-	    takao
-		kochi-substitute
-		roboto
-		material-symbols
-    ];
+    fonts = {
+        packages = with pkgs; [
+            nerd-fonts.jetbrains-mono
+            jetbrains-mono
+            noto-fonts-color-emoji
+            noto-fonts-cjk-sans
+    	    takao
+    		kochi-substitute
+    		roboto
+    		material-symbols
+            inter
+        ];
+    };
 
 
     boot.loader.grub = {

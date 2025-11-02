@@ -1,38 +1,50 @@
 {
-  description = "Home Manager flake for Emerson";
+    description = "Home Manager flake for Emerson";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    inputs = {
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        home-manager.url = "github:nix-community/home-manager";
+        home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
+        dgop = {
+            url = "github:AvengeMedia/dgop";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        dms-cli = {
+            url = "github:AvengeMedia/danklinux";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        dankMaterialShell = {
+            url = "github:AvengeMedia/DankMaterialShell";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.dgop.follows = "dgop";
+            inputs.dms-cli.follows = "dms-cli";
+        };
     };
-  };
 
-  outputs =
+    outputs =
     { self, nixpkgs, home-manager, dankMaterialShell, ... }:
     let
-      system = "x86_64-linux";
+        system = "x86_64-linux";
     in
     {
-      homeConfigurations."emers@host" = home-manager.lib.homeManagerConfiguration {
+        homeConfigurations."emers@host" = home-manager.lib.homeManagerConfiguration {
         # Pull pkgs directly from nixpkgs input, *not* by re-importing
         pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
+            inherit system;
+            config.allowUnfree = true;
         };
 
         modules = [
-          ./home.nix
-          dankMaterialShell.homeModules.dankMaterialShell.default
+            ./home.nix
+            dankMaterialShell.homeModules.dankMaterialShell.default
         ];
 
         extraSpecialArgs = {
-          inherit dankMaterialShell;
+            inherit dankMaterialShell;
         };
-      };
+        };
     };
 }

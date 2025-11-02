@@ -8,21 +8,15 @@
 
   services.gnome.gnome-keyring.enable = true; # Provides default keyring
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
-  };
-
   # Greeter
   programs.dankMaterialShell.greeter = {
     enable = true;
     compositor.name = "hyprland";
     configHome = "/home/emers";
   };
+
+  # Nvidia Replay-ish
+  programs.gpu-screen-recorder.enable = true;
 
   environment.systemPackages = with pkgs; [
     # Essentials
@@ -45,6 +39,8 @@
     nemo-seahorse
     # Utilities
     wineWowPackages.stable
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
     btop
     kitty
     fastfetch
@@ -57,12 +53,14 @@
     wireguard-tools
     nil
     pywalfox-native
-    qt6ct
+    qt6Packages.qt6ct
+    nodejs
+    gemini-cli
     # Apps
     floorp-bin
     zed-editor
     github-desktop
-    bitwarden
+    bitwarden-desktop
     vesktop
     spicetify-cli
     spotify

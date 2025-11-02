@@ -6,7 +6,7 @@
 
       monitor = DP-6, 1920x1080@144, 0x0, 1
       monitor = DP-4, 1920x1080@60, auto-left, 1
-      monitor = HDMI-A-2, 1920x1080@60, auto-down, 1
+      monitor = HDMI-A-2, 1920x1080@60, auto-down, 1, transform, 2
 
 
 
@@ -14,7 +14,6 @@
       exec-once = hyprctl dispatch workspace 2
       workspace = name:3, monitor:HDMI-A-2
       exec-once = hyprctl dispatch workspace 3
-      exec-once = vesktop
       workspace = name:1, monitor:DP-6
       exec-once = hyprctl dispatch workspace 1
 
@@ -25,6 +24,7 @@
       $menu = ulauncher-toggle
 
       exec-once = fcitx & hypridle & gnome-keyring-daemon
+      exec-once = gpu-screen-recorder -w DP-6 -c mp4 -s 0x0 -f 60 -a default_output -a default_input -q very_high -r 300 -o ~/Videos/Replays/
 
       decoration {
           rounding = 10
@@ -145,6 +145,15 @@
 
       # Starts DankShell
       exec-once = dms run
+      exec-once = vesktop
+
+      # Environment Variables
+      env = QT_QPA_PLATFORM,wayland
+      env = ELECTRON_OZONE_PLATFORM_HINT,auto
+      env = QT_QPA_PLATFORMTHEME,qt6ct
+      env = QT_QPA_PLATFORMTHEME_QT6,qt6ct
+
+      layerrule = noanim, ^(quickshell)$
 
       # Dank keybinds
       # 1. These should not be in conflict with any pre-existing keybindings
@@ -176,6 +185,9 @@
 
       # Night mode toggle
       bind = SUPERSHIFT, N, exec, dms ipc call night toggle
+
+      # gpu-screen-recorder save shortcut
+      bind = ALT, Z, exec, sh -c 'pkill -SIGUSR1 -f gpu-screen-recorder; sleep 5; pkill --signal SIGKILL -f gpu-screen-recorder; gpu-screen-recorder -w DP-6 -c mp4 -s 0x0 -f 60 -a default_output -a default_input -q very_high -r 300 -o ~/Videos/Replays/'
     '';
   };
 }
