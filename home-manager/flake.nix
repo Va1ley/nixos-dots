@@ -1,5 +1,5 @@
 {
-    description = "Home Manager flake for Emerson";
+    description = "Home Manager Flake";
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
