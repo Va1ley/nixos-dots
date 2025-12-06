@@ -24,7 +24,7 @@
 
     # Attempt to save battery
     networking.networkmanager.wifi.powersave = true;
-    services.auto-auto-cpufreq.enable = true;
+    services.auto-cpufreq.enable = true;
     powerManagement.enable = true;
 
     environment.systemPackages = with pkgs; [
