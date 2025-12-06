@@ -91,6 +91,7 @@
 
     services.udiskie = {
         enable = true;
+        tray = "never";
         settings.program_options.file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
     };
 

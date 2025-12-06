@@ -31,9 +31,6 @@
             nerd-fonts.jetbrains-mono
             jetbrains-mono
             noto-fonts-color-emoji
-            noto-fonts-cjk-sans
-    	    takao
-    		kochi-substitute
     		roboto
     		material-symbols
             inter

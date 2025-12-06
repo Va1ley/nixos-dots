@@ -3,10 +3,12 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Adjust channel if needed
+
         spicetify-nix = {
             url = "github:Gerg-L/spicetify-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
         dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
         dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
     };

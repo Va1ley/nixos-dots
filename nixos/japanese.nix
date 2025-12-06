@@ -4,111 +4,57 @@
     i18n.inputMethod = {
         enable = true;
         type = "fcitx5";
+        fcitx5.waylandFrontend = true;
         fcitx5.addons = with pkgs; [
             fcitx5-mozc
             fcitx5-gtk
         ];
     };
 
-    i18n.defaultLocale = "en_US.UTF-8";
-    i18n.extraLocales = [ "ja_JP.UTF-8/UTF-8" ];
+    i18n = {
+        supportedLocales = [
+            "ja_JP.UTF-8/UTF-8"
+            "en_US.UTF-8/UTF-8"
+        ];
+        extraLocaleSettings = {
+            LANGUAGE = "en_US.UTF-8";
+            LC_ALL = "en_US.UTF-8";
+            LC_CTYPE = "en_US.UTF8";
+            LC_ADDRESS = "en_US.UTF8";
+            LC_IDENTIFICATION = "en_US.UTF8";
+            LC_MEASUREMENT = "en_US.UTF8";
+            LC_MESSAGES = "en_US.UTF-8";
+            LC_MONETARY = "en_US.UTF8";
+            LC_NAME = "en_US.UTF8";
+            LC_NUMERIC = "en_US.UTF-8";
+            LC_PAPER = "en_US.UTF8";
+            LC_TELEPHONE = "en_US.UTF8";
+            LC_TIME = "en_US.UTF8";
+            LC_COLLATE = "en_US.UTF8";
+        };
+    };
 
+    fonts = {
+        packages = with pkgs; [
+            noto-fonts
+            noto-fonts-cjk-sans
+            terminus_font
+            cantarell-fonts
+        ];
 
-    fonts.fontconfig.localConf = ''
-        <?xml version="1.0"?>
-        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
-        <fontconfig>
-          <!-- Default font (no fc-match pattern) -->
-          <match>
-            <edit mode="prepend" name="family">
-              <string>Noto Sans</string>
-            </edit>
-          </match>
-          <!-- Default font for the ja_JP locale (no fc-match pattern) -->
-          <match>
-            <test compare="contains" name="lang">
-              <string>ja</string>
-            </test>
-            <edit mode="prepend" name="family">
-              <string>Noto Sans CJK JP</string>
-            </edit>
-          </match>
-          <!-- Default sans-serif font -->
-          <match target="pattern">
-            <test qual="any" name="family">
-              <string>sans-serif</string>
-            </test>
-            <!--<test qual="any" name="lang"><string>ja</string></test>-->
-            <edit name="family" mode="prepend" binding="same">
-              <string>Noto Sans</string>
-            </edit>
-          </match>
-          <!-- Default serif fonts -->
-          <match target="pattern">
-            <test qual="any" name="family">
-              <string>serif</string>
-            </test>
-            <edit name="family" mode="prepend" binding="same">
-              <string>Noto Serif</string>
-            </edit>
-            <edit name="family" mode="append" binding="same">
-              <string>IPAPMincho</string>
-            </edit>
-            <edit name="family" mode="append" binding="same">
-              <string>HanaMinA</string>
-            </edit>
-          </match>
-          <!-- Default monospace fonts -->
-          <match target="pattern">
-            <test qual="any" name="family">
-              <string>monospace</string>
-            </test>
-            <edit name="family" mode="prepend" binding="same">
-              <string>Noto Sans Mono</string>
-            </edit>
-            <edit name="family" mode="append" binding="same">
-              <string>Inconsolatazi4</string>
-            </edit>
-            <edit name="family" mode="append" binding="same">
-              <string>IPAGothic</string>
-            </edit>
-          </match>
-          <!-- Fallback fonts preference order -->
-          <alias>
-            <family>sans-serif</family>
-            <prefer>
-              <family>Noto Sans</family>
-              <family>Open Sans</family>
-              <family>Droid Sans</family>
-              <family>Ubuntu</family>
-              <family>Roboto</family>
-              <family>NotoSansCJK</family>
-              <family>Source Han Sans JP</family>
-              <family>IPAPGothic</family>
-              <family>VL PGothic</family>
-              <family>Koruri</family>
-            </prefer>
-          </alias>
-          <alias>
-            <family>serif</family>
-            <prefer>
-              <family>Noto Serif</family>
-              <family>Droid Serif</family>
-              <family>Roboto Slab</family>
-              <family>IPAPMincho</family>
-            </prefer>
-          </alias>
-          <alias>
-            <family>monospace</family>
-            <prefer>
-              <family>Noto Sans Mono</family>
-              <family>Inconsolatazi4</family>
-              <family>Ubuntu Mono</family>
-              <family>Droid Sans Mono</family>
-              <family>Roboto Mono</family>
-              <family>IPAGothic</family>
-            </prefer>
-          </alias>
-        </fontconfig>
-    '';
+        fontDir.enable = true;
+        fontconfig = {
+            defaultFonts = {
+                serif = [
+                    "Noto Serif CJK JP"
+                    "Noto Color Emoji"
+                ];
+                sansSerif =[
+                    "Noto Sans CJK JP"
+                    "Noto Clor Emoji"
+                ];
+                emoji = ["Noto Color Emoji"];
+            };
+        };
+    };
 }

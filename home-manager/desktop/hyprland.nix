@@ -145,7 +145,9 @@
 
       # Starts DankShell
       exec-once = dms run
+
       exec-once = vesktop
+      exec-once = hyprctl dispatch movetoworkspace 3,class:vesktop
 
       # Environment Variables
       env = QT_QPA_PLATFORM,wayland
@@ -163,7 +165,7 @@
 
       # Application and system controls
       bind = SUPER, Space, exec, dms ipc call spotlight toggle
-      # bind = SUPER, V, exec, dms ipc call clipboard toggle
+      bind = SUPER, B, exec, dms ipc call clipboard toggle
       # bind = SUPER, M, exec, dms ipc call processlist toggle
       bind = SUPER, N, exec, dms ipc call notifications toggle
       bind = SUPER, comma, exec, dms ipc call settings toggle

@@ -34,6 +34,6 @@
     # Xbox adapter
     hardware.xone.enable = true;
 
-    # Automatic Mounting
+    # Automount devices
     services.udisks2.enable = true;
 }

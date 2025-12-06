@@ -14,8 +14,8 @@
         };
 
         iconTheme = {
-            name = "Dracula";
-            package = pkgs.dracula-icon-theme;
+            name = "Adwaita";
+            package = pkgs.adwaita-icon-theme;
         };
     };
 
