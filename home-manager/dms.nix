@@ -17,6 +17,6 @@
             gtkTheme = "adw-gtk3-dark";
         };
 
-        quickshell.package = pkgs.quickshell;
+        # quickshell.package = pkgs.quickshell;
     };
 }

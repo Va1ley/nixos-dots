@@ -88,4 +88,9 @@
 
   # Enables TLS support for gnomes packages
   services.gnome.glib-networking.enable = true;
+
+  programs.dsearch = {
+      enable = true;
+      systemd.enable = true;
+  };
 }
