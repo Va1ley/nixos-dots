@@ -9,10 +9,15 @@
   services.gnome.gnome-keyring.enable = true; # Provides default keyring
 
   # Greeter
-  programs.dankMaterialShell.greeter = {
-    enable = true;
-    compositor.name = "hyprland";
-    configHome = "/home/emers";
+  services.displayManager.dms-greeter = {
+      enable = true;
+      compositor.name = "hyprland";
+
+      configHome = "/home/emers";
+      logs = {
+          save = true;
+          path = "/tmp/dms-greeter.log";
+      };
   };
 
   # Nvidia Replay-ish
