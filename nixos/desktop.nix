@@ -21,4 +21,8 @@
         pureref
         config.boot.kernelPackages.digimend
     ];
+
+
+    virtualisation.virtualbox.host.enable = true;
+    users.extraGroups.vboxusers.members = [ "emers" ];
 }

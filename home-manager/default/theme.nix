@@ -45,13 +45,11 @@
         };
 
 
-        programs.zed-editor = {
-        userSettings = {
+        programs.zed-editor.userSettings = {
             theme = {
                 mode = "dark";
                 light = "One Light";
                 dark = "Ayu Dark";
             };
         };
-    };
 }

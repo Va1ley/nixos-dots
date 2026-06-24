@@ -1,4 +1,4 @@
-{ config, pkgs, dankMaterialShell, ... }:
+{ config, pkgs, dank-material-shell, ... }:
 
 {
     imports = [
@@ -17,7 +17,6 @@
             package = pkgs.vanilla-dmz;
             name = "Vanilla-DMZ";
             size = 24;
-            gtk.enable = true;
             x11 = {
                 enable = true;
                 defaultCursor = true;
@@ -34,6 +33,9 @@
                 "video/*" = [ "mpv.desktop" ];
                 "image/png" = [ "Loupe.desktop" ];
                 "image/jpeg" = [ "Loupe.desktop" ];
+                "x-scheme-handler/http"  = [ "floorp.desktop" ];
+                "x-scheme-handler/https" = [ "floorp.desktop" ];
+                "text/html" = [ "floorp.desktop" ];
             };
             associations.added = {
                 "application/vnd.microsoft.portable-executable" = [ "wine.desktop" ];

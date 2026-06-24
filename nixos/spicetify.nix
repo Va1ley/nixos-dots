@@ -17,6 +17,6 @@
             marketplace
             newReleases
         ];
-        theme = spicePkgs.themes.lucid;
+        # theme = spicePkgs.themes.lucid;
     };
 }

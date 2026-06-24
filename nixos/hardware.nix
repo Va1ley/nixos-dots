@@ -4,7 +4,7 @@
     # Networking
     time.timeZone = "America/Denver";
     networking.hostName = "nix-desktop";
-    networking.firewall.enable = true;
+    networking.firewall.enable = false;
     networking.networkmanager.enable = true;
 
     # Help Spotify Connect
@@ -33,6 +33,7 @@
 
     # Xbox adapter
     hardware.xone.enable = true;
+    hardware.xpadneo.enable = true;
 
     # Automount devices
     services.udisks2.enable = true;

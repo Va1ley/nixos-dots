@@ -11,15 +11,14 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        dankMaterialShell = {
+        dank-material-shell = {
             url = "github:AvengeMedia/DankMaterialShell";
             inputs.nixpkgs.follows = "nixpkgs";
-            inputs.dgop.follows = "dgop";
         };
     };
 
     outputs =
-    { self, nixpkgs, home-manager, dankMaterialShell, ... }:
+    { self, nixpkgs, home-manager, dank-material-shell, ... }:
     let
         system = "x86_64-linux";
     in
@@ -33,11 +32,11 @@
 
         modules = [
             ./home.nix
-            dankMaterialShell.homeModules.dankMaterialShell.default
+            dank-material-shell.homeModules.dankMaterialShell.default
         ];
 
         extraSpecialArgs = {
-            inherit dankMaterialShell;
+            inherit dank-material-shell;
         };
         };
     };
